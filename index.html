@@ -26,7 +26,7 @@
         <div class="item">
           <dt class="itemTitle">
             <input type="checkbox" id="title-1" class="itemTitleCheckbox" />
-            <label for="title-1" class="itemTitleCheckboxLabel"
+            <label for="title-1" class="itemTitleCheckboxLabel" tabindex="0"
               >What is Frontend Mentor, and how will it help me?</label
             >
           </dt>
@@ -41,7 +41,7 @@
         <div class="item">
           <dt class="itemTitle">
             <input type="checkbox" id="title-2" class="itemTitleCheckbox" />
-            <label for="title-2" class="itemTitleCheckboxLabel"
+            <label for="title-2" class="itemTitleCheckboxLabel" tabindex="0"
               >Is Frontend Mentor free?</label
             >
           </dt>
@@ -55,7 +55,7 @@
         <div class="item">
           <dt class="itemTitle">
             <input type="checkbox" id="title-3" class="itemTitleCheckbox" />
-            <label for="title-3" class="itemTitleCheckboxLabel"
+            <label for="title-3" class="itemTitleCheckboxLabel" tabindex="0"
               >Can I use Frontend Mentor projects in my portfolio?</label
             >
           </dt>
@@ -69,7 +69,7 @@
         <div class="item">
           <dt class="itemTitle">
             <input type="checkbox" id="title-4" class="itemTitleCheckbox" />
-            <label for="title-4" class="itemTitleCheckboxLabel"
+            <label for="title-4" class="itemTitleCheckboxLabel" tabindex="0"
               >How can I get help if I'm stuck on a challenge?</label
             >
           </dt>
@@ -81,5 +81,23 @@
         </div>
       </dl>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const labels = document.querySelectorAll(".itemTitleCheckboxLabel");
+
+        labels.forEach(l => l.addEventListener("keyup", handleLabel));
+
+        function handleLabel(e) {
+          const checkboxId = e.target.getAttribute("for");
+          const checkbox = document.querySelector(
+            `input[type='checkbox']#${checkboxId}`
+          );
+
+          if (e.keyCode == 13 || e.keyCode == 32) {
+            checkbox.checked = !checkbox.checked;
+          }
+        }
+      });
+    </script>
   </body>
 </html>
