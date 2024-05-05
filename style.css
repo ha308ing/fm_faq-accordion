@@ -28,6 +28,7 @@ body {
   --purple-grayfish: hsl(292, 16%, 49%);
   --purple-dark: hsl(292, 42%, 14%);
   --purple: hsl(281, 83%, 54%);
+  --purple-shadow: hsl(288, 38%, 82%);
 
   background-image: linear-gradient(
       to bottom,
@@ -41,7 +42,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-flow: row nowrap;
-  /* place-items: center; */
   padding: 143px 0;
   place-content: center;
   margin: 0;
@@ -49,12 +49,12 @@ body {
 }
 
 .box {
-  /* padding: 24px 26px 8px; */
   background-color: var(--white);
   height: fit-content;
   border-radius: 8px;
   width: 327px;
   padding-bottom: 4px;
+  box-shadow: 0 42px 50px -20px var(--purple-shadow);
 }
 
 .boxTitle {
@@ -77,13 +77,12 @@ body {
 }
 
 .item {
-  /* padding: 17px 0 18px; */
   padding: 0;
   margin: 0 24px;
 }
 
 .item:not(:last-child) {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--pink-light);
 }
 
 .itemTitle:hover {
@@ -111,7 +110,6 @@ body {
 }
 
 .itemTitleCheckboxLabel {
-  /* background: pink; */
   font-weight: 600;
   display: flex;
   flex-flow: row nowrap;
@@ -130,7 +128,6 @@ body {
   display: block;
   content: url("./assets/images/icon-plus.svg");
   margin-left: 16px;
-  /* margin-top: 4px; */
 }
 
 .itemText {
@@ -156,7 +153,6 @@ body {
   }
 
   .box {
-    /* padding: 39px 1.5em 16px; */
     width: 600px;
     border-radius: 1em;
     padding-bottom: 15px;
