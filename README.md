@@ -37,8 +37,8 @@ _Result_
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [gh repo](https://github.com/ha308ing/fm_faq-accordion)
+- Live Site URL: [gh pages deploy](https://ha308ing.github.io/fm_faq-accordion/)
 
 ## My process
 
