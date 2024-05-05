@@ -124,6 +124,11 @@ body {
   line-height: 20px;
 }
 
+.itemTitleCheckboxLabel:focus-visible {
+  outline-style: solid;
+  outline-color: var(--purple-grayfish);
+}
+
 .itemTitleCheckboxLabel::after {
   display: block;
   content: url("./assets/images/icon-plus.svg");
