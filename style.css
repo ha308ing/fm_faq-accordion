@@ -37,7 +37,7 @@ body {
     ),
     url("./assets/images/background-pattern-desktop.svg");
   background-repeat: no-repeat;
-  background-position: top left;
+  background-position: top center;
   background-blend-mode: lighten;
   min-height: 100vh;
   display: flex;
@@ -46,6 +46,7 @@ body {
   place-content: center;
   margin: 0;
   cursor: default;
+  background-size: contain;
 }
 
 .box {
