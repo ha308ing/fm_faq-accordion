@@ -3,6 +3,23 @@
   src: url("./assets/fonts/WorkSans-VariableFont_wght.ttf");
 }
 
+:root {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  line-height: 1;
+}
+
+dl,
+h1,
+label {
+  margin: 0;
+}
+
 body {
   font-family: "Work Sans";
 
@@ -10,105 +27,178 @@ body {
   --pink-light: hsl(275, 100%, 97%);
   --purple-grayfish: hsl(292, 16%, 49%);
   --purple-dark: hsl(292, 42%, 14%);
+  --purple: hsl(281, 83%, 54%);
+  --purple-shadow: hsl(288, 38%, 82%);
 
   background-image: linear-gradient(
       to bottom,
-      var(--purple-dark) 315px,
-      var(--pink-light) 315px
+      var(--purple-dark) 232px,
+      var(--pink-light) 232px
     ),
     url("./assets/images/background-pattern-desktop.svg");
   background-repeat: no-repeat;
-  background-position: top left;
+  background-position: top center;
   background-blend-mode: lighten;
   min-height: 100vh;
   display: flex;
   flex-flow: row nowrap;
-  place-items: center;
+  padding: 143px 0;
   place-content: center;
+  margin: 0;
+  cursor: default;
+  background-size: contain;
+}
+
+.box {
+  background-color: var(--white);
+  height: fit-content;
+  border-radius: 8px;
+  width: 327px;
+  padding-bottom: 4px;
+  box-shadow: 0 42px 50px -20px var(--purple-shadow);
 }
 
 .boxTitle {
   display: flex;
-  margin-left: 15px;
-  margin-bottom: 8px;
   padding: 0;
+  align-items: center;
+  margin-bottom: 9px;
+  padding-left: 23px;
+  padding-top: 27px;
+}
+
+.boxTitleImage {
+  width: 24px;
+  margin-right: 25px;
+}
+
+.boxTitleHeader {
   font-weight: 700;
-  font-size: 55px;
+  font-size: 31px;
 }
 
-.boxTitle::before {
-  content: url("./assets/images/icon-star.svg");
-  display: block;
-  /* transform: scale(0.85); */
-  margin: 0 25px 0 0;
+.item {
   padding: 0;
+  margin: 0 24px;
 }
 
-dl {
-  margin: 0;
+.item:not(:last-child) {
+  border-bottom: 1px solid var(--pink-light);
 }
 
-input {
+.itemTitle:hover {
+  color: var(--purple);
+}
+
+.itemTitle * {
+  cursor: pointer;
+}
+
+.itemTitle:has(input:checked) .itemTitleCheckboxLabel::after {
+  content: url("./assets/images/icon-minus.svg");
+}
+
+.itemTitle:has(input:checked) + .itemText {
+  display: block;
+}
+
+.itemTitleCheckbox {
   display: none;
 }
 
-label::after {
-  display: block;
-  content: url("./assets/images/icon-plus.svg");
+.itemTitleCheckbox:checked + .itemTitleCheckboxLabel {
+  padding-bottom: 0;
 }
 
-.box {
-  padding: 5px 1.5em 1.5em;
-  background-color: #fff;
-  border-radius: 1em;
-  width: 550px;
-}
-
-label {
-  /* background: pink; */
+.itemTitleCheckboxLabel {
   font-weight: 600;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
-  padding: 1em 0;
+  font-size: 16px;
+  letter-spacing: -0.03px;
+  line-height: 18px;
+  padding: 11px 0 11px;
+  margin: 0;
+  padding: 19px 0;
+  line-height: 20px;
 }
 
-.itemTitle > * {
-  cursor: pointer;
+.itemTitleCheckboxLabel:focus-visible {
+  outline-style: solid;
+  outline-color: var(--purple-grayfish);
+}
+
+.itemTitleCheckboxLabel::after {
+  display: block;
+  content: url("./assets/images/icon-plus.svg");
+  margin-left: 16px;
 }
 
 .itemText {
-  line-height: 1.5;
-  color: var(--purple-grayfish);
-  padding-bottom: 26px;
-}
-
-dd {
   display: none;
   padding: 0;
   margin: 0;
+  color: var(--purple-grayfish);
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 21px;
+  margin-top: 20px;
 }
 
-dt:has(input:checked) label::after {
-  content: url("./assets/images/icon-minus.svg");
-  text-align: center;
-}
+@media (min-width: 1440px) {
+  body {
+    background-image: linear-gradient(
+        to bottom,
+        var(--purple-dark) 320px,
+        var(--pink-light) 320px
+      ),
+      url("./assets/images/background-pattern-desktop.svg");
+    padding: 168px 0;
+  }
 
-dt:has(input:checked) + dd {
-  display: block;
-}
+  .box {
+    width: 600px;
+    border-radius: 1em;
+    padding-bottom: 15px;
+  }
 
-.item:not(:last-child) {
-  border-bottom: 1px solid #eee;
-}
+  .boxTitle {
+    margin-left: 15px;
+    margin-bottom: 13px;
+    padding-top: 45px;
+  }
 
-.item {
-  padding: 0;
-  margin: 0 15px;
-}
+  .boxTitleImage {
+    width: 42px;
+  }
 
-.itemTitle {
-  font-size: 18px;
-  padding-top: 5px;
+  .boxTitleHeader {
+    font-size: 56px;
+  }
+
+  .item {
+    padding: 0;
+    margin: 0 40px;
+  }
+
+  .itemTitleCheckboxLabel {
+    font-size: 18px;
+    line-height: 1;
+    padding: 22px 0;
+  }
+
+  .itemTitleCheckboxLabel::after {
+    margin-top: 0;
+  }
+
+  .itemText {
+    padding: 0;
+    margin: 0;
+    line-height: 1.5;
+    padding-bottom: 27px;
+    margin-top: 20px;
+    font-size: 16px;
+  }
 }
