@@ -3,6 +3,20 @@
   src: url("./assets/fonts/WorkSans-VariableFont_wght.ttf");
 }
 
+:root {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+dl {
+  margin: 0;
+}
+
 body {
   font-family: "Work Sans";
 
@@ -27,6 +41,13 @@ body {
   place-content: center;
 }
 
+.box {
+  padding: 5px 1.5em 1.5em;
+  background-color: var(--white);
+  border-radius: 1em;
+  width: 600px;
+}
+
 .boxTitle {
   display: flex;
   margin-left: 15px;
@@ -39,32 +60,42 @@ body {
 .boxTitle::before {
   content: url("./assets/images/icon-star.svg");
   display: block;
-  /* transform: scale(0.85); */
   margin: 0 25px 0 0;
   padding: 0;
 }
 
-dl {
-  margin: 0;
+.item {
+  padding: 0;
+  margin: 0 15px;
 }
 
-input {
+.item:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+
+.itemTitle {
+  font-size: 18px;
+  padding-top: 5px;
+}
+
+.itemTitle * {
+  cursor: pointer;
+}
+
+.itemTitle:has(input:checked) .itemTitleCheckboxLabel::after {
+  content: url("./assets/images/icon-minus.svg");
+  text-align: center;
+}
+
+.itemTitle:has(input:checked) + .itemText {
+  display: block;
+}
+
+.itemTitleCheckbox {
   display: none;
 }
 
-label::after {
-  display: block;
-  content: url("./assets/images/icon-plus.svg");
-}
-
-.box {
-  padding: 5px 1.5em 1.5em;
-  background-color: #fff;
-  border-radius: 1em;
-  width: 550px;
-}
-
-label {
+.itemTitleCheckboxLabel {
   /* background: pink; */
   font-weight: 600;
   display: flex;
@@ -74,41 +105,16 @@ label {
   padding: 1em 0;
 }
 
-.itemTitle > * {
-  cursor: pointer;
+.itemTitleCheckboxLabel::after {
+  display: block;
+  content: url("./assets/images/icon-plus.svg");
 }
 
 .itemText {
-  line-height: 1.5;
-  color: var(--purple-grayfish);
-  padding-bottom: 26px;
-}
-
-dd {
   display: none;
   padding: 0;
   margin: 0;
-}
-
-dt:has(input:checked) label::after {
-  content: url("./assets/images/icon-minus.svg");
-  text-align: center;
-}
-
-dt:has(input:checked) + dd {
-  display: block;
-}
-
-.item:not(:last-child) {
-  border-bottom: 1px solid #eee;
-}
-
-.item {
-  padding: 0;
-  margin: 0 15px;
-}
-
-.itemTitle {
-  font-size: 18px;
-  padding-top: 5px;
+  line-height: 1.5;
+  color: var(--purple-grayfish);
+  padding-bottom: 26px;
 }
