@@ -13,7 +13,9 @@
   box-sizing: inherit;
 }
 
-dl {
+dl,
+h1,
+label {
   margin: 0;
 }
 
@@ -24,11 +26,12 @@ body {
   --pink-light: hsl(275, 100%, 97%);
   --purple-grayfish: hsl(292, 16%, 49%);
   --purple-dark: hsl(292, 42%, 14%);
+  --purple: hsl(281, 83%, 54%);
 
   background-image: linear-gradient(
       to bottom,
-      var(--purple-dark) 315px,
-      var(--pink-light) 315px
+      var(--purple-dark) 232px,
+      var(--pink-light) 232px
     ),
     url("./assets/images/background-pattern-desktop.svg");
   background-repeat: no-repeat;
@@ -37,36 +40,41 @@ body {
   min-height: 100vh;
   display: flex;
   flex-flow: row nowrap;
-  place-items: center;
+  /* place-items: center; */
+  padding: 143px 0;
   place-content: center;
+  margin: 0;
+  cursor: default;
 }
 
 .box {
-  padding: 5px 1.5em 1.5em;
+  padding: 20px 26px 8px;
   background-color: var(--white);
-  border-radius: 1em;
-  width: 600px;
+  border-radius: 12px;
+  width: 330px;
+
+  height: fit-content;
 }
 
 .boxTitle {
   display: flex;
-  margin-left: 15px;
-  margin-bottom: 8px;
   padding: 0;
   font-weight: 700;
-  font-size: 55px;
+  font-size: 31px;
+  align-items: center;
 }
 
 .boxTitle::before {
   content: url("./assets/images/icon-star.svg");
   display: block;
-  margin: 0 25px 0 0;
+  margin: 0 8px 0 0;
   padding: 0;
+  transform: scale(0.6) translateX(-14px);
 }
 
 .item {
-  padding: 0;
-  margin: 0 15px;
+  padding: 17px 0 18px;
+  margin: 0;
 }
 
 .item:not(:last-child) {
@@ -74,8 +82,13 @@ body {
 }
 
 .itemTitle {
-  font-size: 18px;
-  padding-top: 5px;
+  font-size: 16px;
+  letter-spacing: -0.03px;
+  line-height: 18px;
+}
+
+.itemTitle:hover {
+  color: var(--purple);
 }
 
 .itemTitle * {
@@ -84,7 +97,6 @@ body {
 
 .itemTitle:has(input:checked) .itemTitleCheckboxLabel::after {
   content: url("./assets/images/icon-minus.svg");
-  text-align: center;
 }
 
 .itemTitle:has(input:checked) + .itemText {
@@ -102,12 +114,14 @@ body {
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
-  padding: 1em 0;
+  padding: 0;
 }
 
 .itemTitleCheckboxLabel::after {
   display: block;
   content: url("./assets/images/icon-plus.svg");
+  margin-left: 15px;
+  margin-top: 4px;
 }
 
 .itemText {
@@ -116,5 +130,60 @@ body {
   margin: 0;
   line-height: 1.5;
   color: var(--purple-grayfish);
-  padding-bottom: 26px;
+  font-size: 14px;
+  padding-top: 22px;
+  padding-bottom: 3px;
+}
+
+@media (min-width: 1440px) {
+  body {
+    background-image: linear-gradient(
+        to bottom,
+        var(--purple-dark) 320px,
+        var(--pink-light) 320px
+      ),
+      url("./assets/images/background-pattern-desktop.svg");
+    padding: 168px 0;
+  }
+
+  .box {
+    padding: 39px 1.5em 16px;
+    width: 600px;
+    border-radius: 1em;
+  }
+
+  .boxTitle {
+    margin-left: 15px;
+    margin-bottom: 10px;
+    font-size: 56px;
+  }
+
+  .boxTitle::before {
+    margin: 0 25px 0 0;
+    transform: initial;
+  }
+
+  .item {
+    padding: 0;
+    margin: 0 16px;
+  }
+
+  .itemTitle {
+    font-size: 18px;
+    line-height: 1;
+    padding: 22px 0;
+  }
+
+  .itemTitleCheckboxLabel::after {
+    margin-top: 0;
+  }
+
+  .itemText {
+    padding: 0;
+    margin: 0;
+    line-height: 1.5;
+    padding-bottom: 27px;
+    margin-top: -3px;
+    font-size: 16px;
+  }
 }
