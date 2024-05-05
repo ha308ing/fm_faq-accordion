@@ -11,6 +11,7 @@
 *::before,
 *::after {
   box-sizing: inherit;
+  line-height: 1;
 }
 
 dl,
@@ -48,43 +49,41 @@ body {
 }
 
 .box {
-  padding: 20px 26px 8px;
+  /* padding: 24px 26px 8px; */
   background-color: var(--white);
-  border-radius: 12px;
-  width: 330px;
-
   height: fit-content;
+  border-radius: 8px;
+  width: 327px;
+  padding-bottom: 4px;
 }
 
 .boxTitle {
   display: flex;
   padding: 0;
-  font-weight: 700;
-  font-size: 31px;
   align-items: center;
+  margin-bottom: 9px;
+  padding-left: 23px;
+  padding-top: 27px;
 }
 
-.boxTitle::before {
-  content: url("./assets/images/icon-star.svg");
-  display: block;
-  margin: 0 8px 0 0;
-  padding: 0;
-  transform: scale(0.6) translateX(-14px);
+.boxTitleImage {
+  width: 24px;
+  margin-right: 25px;
+}
+
+.boxTitleHeader {
+  font-weight: 700;
+  font-size: 31px;
 }
 
 .item {
-  padding: 17px 0 18px;
-  margin: 0;
+  /* padding: 17px 0 18px; */
+  padding: 0;
+  margin: 0 24px;
 }
 
 .item:not(:last-child) {
   border-bottom: 1px solid #eee;
-}
-
-.itemTitle {
-  font-size: 16px;
-  letter-spacing: -0.03px;
-  line-height: 18px;
 }
 
 .itemTitle:hover {
@@ -107,6 +106,10 @@ body {
   display: none;
 }
 
+.itemTitleCheckbox:checked + .itemTitleCheckboxLabel {
+  padding-bottom: 0;
+}
+
 .itemTitleCheckboxLabel {
   /* background: pink; */
   font-weight: 600;
@@ -114,25 +117,31 @@ body {
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
-  padding: 0;
+  font-size: 16px;
+  letter-spacing: -0.03px;
+  line-height: 18px;
+  padding: 11px 0 11px;
+  margin: 0;
+  padding: 19px 0;
+  line-height: 20px;
 }
 
 .itemTitleCheckboxLabel::after {
   display: block;
   content: url("./assets/images/icon-plus.svg");
-  margin-left: 15px;
-  margin-top: 4px;
+  margin-left: 16px;
+  /* margin-top: 4px; */
 }
 
 .itemText {
   display: none;
   padding: 0;
   margin: 0;
-  line-height: 1.5;
   color: var(--purple-grayfish);
   font-size: 14px;
-  padding-top: 22px;
-  padding-bottom: 3px;
+  line-height: 1.5;
+  margin-bottom: 21px;
+  margin-top: 20px;
 }
 
 @media (min-width: 1440px) {
@@ -147,28 +156,32 @@ body {
   }
 
   .box {
-    padding: 39px 1.5em 16px;
+    /* padding: 39px 1.5em 16px; */
     width: 600px;
     border-radius: 1em;
+    padding-bottom: 15px;
   }
 
   .boxTitle {
     margin-left: 15px;
-    margin-bottom: 10px;
-    font-size: 56px;
+    margin-bottom: 13px;
+    padding-top: 45px;
   }
 
-  .boxTitle::before {
-    margin: 0 25px 0 0;
-    transform: initial;
+  .boxTitleImage {
+    width: 42px;
+  }
+
+  .boxTitleHeader {
+    font-size: 56px;
   }
 
   .item {
     padding: 0;
-    margin: 0 16px;
+    margin: 0 40px;
   }
 
-  .itemTitle {
+  .itemTitleCheckboxLabel {
     font-size: 18px;
     line-height: 1;
     padding: 22px 0;
@@ -183,7 +196,7 @@ body {
     margin: 0;
     line-height: 1.5;
     padding-bottom: 27px;
-    margin-top: -3px;
+    margin-top: 20px;
     font-size: 16px;
   }
 }
